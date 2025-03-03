@@ -57,7 +57,8 @@ public class OpenAiCodeReview {
         System.out.println("writeLog：" + logUrl);
 
         // 4. 发送通知
-
+        System.out.println("pushMessage：" + logUrl);
+        pushMessage(logUrl);
     }
 
     public static String codeReview(String diffCode) throws IOException {
