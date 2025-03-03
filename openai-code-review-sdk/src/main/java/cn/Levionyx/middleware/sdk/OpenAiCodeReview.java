@@ -147,7 +147,7 @@ public class OpenAiCodeReview {
 
         System.out.println("Changes have been pushed to the repository.");
         // 返回新文件的 GitHub 访问 URL
-        return "https://github.com/Levionyx/openai-code-review-log.git/blob/master/" + dateFolderName + "/" + fileName;
+        return "https://github.com/Levionyx/openai-code-review-log/blob/master/" + dateFolderName + "/" + fileName;
     }
 
     private static void pushMessage(String logUrl) {
