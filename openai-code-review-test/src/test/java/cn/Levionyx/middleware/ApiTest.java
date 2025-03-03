@@ -15,5 +15,4 @@ public class ApiTest {
     public void test() {
         System.out.println(Integer.parseInt("aaaa"));
     }
-
 }
