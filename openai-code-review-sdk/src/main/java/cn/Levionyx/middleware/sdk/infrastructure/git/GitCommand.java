@@ -36,7 +36,7 @@ public class GitCommand {
     }
 
     public String diff() throws IOException, InterruptedException {
-        // 获取最近一次提交的哈希值
+        // openai.itedus.cn
         ProcessBuilder logProcessBuilder = new ProcessBuilder("git", "log", "-1", "--pretty=format:%H");
         logProcessBuilder.directory(new File("."));
         Process logProcess = logProcessBuilder.start();
@@ -46,7 +46,6 @@ public class GitCommand {
         logReader.close();
         logProcess.waitFor();
 
-        // 获取最近一次提交的diff
         ProcessBuilder diffProcessBuilder = new ProcessBuilder("git", "diff", latestCommitHash + "^", latestCommitHash);
         diffProcessBuilder.directory(new File("."));
         Process diffProcess = diffProcessBuilder.start();
@@ -68,7 +67,6 @@ public class GitCommand {
     }
 
     public String commitAndPush(String recommend) throws Exception {
-        System.out.println(githubReviewLogUri);
         Git git = Git.cloneRepository()
                 .setURI(githubReviewLogUri + ".git")
                 .setDirectory(new File("repo"))
