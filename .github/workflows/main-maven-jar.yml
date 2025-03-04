@@ -33,4 +33,18 @@ jobs:
       - name: Run Code Review
         run: java -jar ./libs/openai-code-review-sdk-1.0.jar
         env:
+          # Github 配置；GITHUB_REVIEW_LOG_URI「https://github.com/xfg-studio-project/openai-code-review-log」、GITHUB_TOKEN「https://github.com/settings/tokens」
+          GITHUB_REVIEW_LOG_URI: ${{ secrets.CODE_REVIEW_LOG_URI }}
           GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
+          COMMIT_PROJECT: ${{ env.REPO_NAME }}
+          COMMIT_BRANCH: ${{ env.BRANCH_NAME }}
+          COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
+          COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
+          # 微信配置 「https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index」
+          WEIXIN_APPID: ${{ secrets.WEIXIN_APPID }}
+          WEIXIN_SECRET: ${{ secrets.WEIXIN_SECRET }}
+          WEIXIN_TOUSER: ${{ secrets.WEIXIN_TOUSER }}
+          WEIXIN_TEMPLATE_ID: ${{ secrets.WEIXIN_TEMPLATE_ID }}
+          # OpenAi - DeepSeeK 配置「https://api.deepseek.com/chat/completions」、「https://platform.deepseek.com/api_keys」
+          DEEPSEEK_APIHOST: ${{ secrets.DEEPSEEK_APIHOST }}
+          DEEPSEEK_APIKEY: ${{ secrets.DEEPSEEK_APIKEY }}

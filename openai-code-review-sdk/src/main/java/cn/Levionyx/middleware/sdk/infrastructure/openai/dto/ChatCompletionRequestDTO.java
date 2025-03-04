@@ -1,8 +1,11 @@
-package cn.Levionyx.middleware.sdk.domain.model;
+package cn.Levionyx.middleware.sdk.infrastructure.openai.dto;
+
+
+import cn.Levionyx.middleware.sdk.domain.model.Model;
 
 import java.util.List;
 
-public class ChatCompletionRequest {
+public class ChatCompletionRequestDTO {
 
     private String model = Model.DEEPSEEK_V3.getCode();
     private List<Prompt> messages;
