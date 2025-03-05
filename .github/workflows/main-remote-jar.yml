@@ -1,4 +1,4 @@
-name: Run Java Git Diff By Maven
+name: Build and Run OpenAiCodeReview By Main Maven Jar
 
 on:
   push:
@@ -24,11 +24,11 @@ jobs:
           distribution: 'adopt'  # 你可以选择其他发行版，如 'adopt' 或 'zulu'
           java-version: '11'
 
-      - name: Create lib directory
+      - name: Create libs directory
         run: mkdir -p ./libs
 
       - name: Download openai-code-review-sdk JAR
-        run: wget -o ./libs/openai-code-review-sdk-1.0.jar https://github.com/Levionyx/openai-code-review-log/releases/download/V1.0/openai-code-review-sdk-1.0.jar
+        run: wget -O ./libs/openai-code-review-sdk-1.0.jar https://github.com/Levionyx/openai-code-review-log/releases/download/V1.0/openai-code-review-sdk-1.0.jar
 
       - name: Get repository name
         id: repo-name
