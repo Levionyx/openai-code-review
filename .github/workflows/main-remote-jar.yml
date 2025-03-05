@@ -3,10 +3,10 @@ name: Run Java Git Diff By Maven
 on:
   push:
     branches:
-      - master-close
+      - master
   pull_request:
     branches:
-      - master-close
+      - master
 
 jobs:
   build-and-run:
@@ -24,11 +24,11 @@ jobs:
           distribution: 'adopt'  # 你可以选择其他发行版，如 'adopt' 或 'zulu'
           java-version: '11'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Create lib directory
+        run: mkdir -p ./libs
 
-      - name: Copy openai-code-review-sdk JAR
-        run: mvn dependency:copy -Dartifact=cn.Levionyx.middleware:openai-code-review-sdk:1.0 -DoutputDirectory=./libs
+      - name: Download openai-code-review-sdk JAR
+        run: wget -o ./libs/openai-code-review-sdk-1.0.jar https://github.com/Levionyx/openai-code-review-log/releases/download/V1.0/openai-code-review-sdk-1.0.jar
 
       - name: Get repository name
         id: repo-name
