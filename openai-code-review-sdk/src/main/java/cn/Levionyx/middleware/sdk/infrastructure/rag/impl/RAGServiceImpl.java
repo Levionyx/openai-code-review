@@ -27,7 +27,7 @@ public class RAGServiceImpl implements IRAGService {
     public String completionsWithRag(String diffCode) throws Exception {
         logger.info("开始RAG评审代码");
         String baseUrl = "https://a497-14-26-146-155.ngrok-free.app/api/v1/openai/generate_stream_rag";
-        String message = URLEncoder.encode(diffCode, String.valueOf(StandardCharsets.UTF_8));
+        String message = URLEncoder.encode(diffCode+"，说出违法代码规范第几条", String.valueOf(StandardCharsets.UTF_8));
         String tag = URLEncoder.encode("代码规范手册", String.valueOf(StandardCharsets.UTF_8));
         String model = "gpt-4o";
         String urlStr = baseUrl + "?message=" + message + "&ragTag=" + tag + "&model=" + model;

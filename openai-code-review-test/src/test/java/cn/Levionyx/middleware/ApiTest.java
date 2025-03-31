@@ -17,10 +17,13 @@ import java.util.Map;
 public class ApiTest {
 
     @Test
-    public void test() {
+    public void Test_User_Validation() {
         String FirstName = "John";
         String last_name = "Doe";
 
         boolean is_Active = true;
+
+        final int max_limit = 100;
+
     }
 }
