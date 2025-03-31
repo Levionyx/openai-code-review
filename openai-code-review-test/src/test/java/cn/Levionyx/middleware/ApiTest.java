@@ -18,6 +18,9 @@ public class ApiTest {
 
     @Test
     public void test() {
+        String FirstName = "John";
+        String last_name = "Doe";
 
+        boolean is_Active = true;
     }
 }
