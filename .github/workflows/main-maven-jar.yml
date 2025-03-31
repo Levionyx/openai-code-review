@@ -68,6 +68,3 @@ jobs:
           WEIXIN_SECRET: ${{ secrets.WEIXIN_SECRET }}
           WEIXIN_TOUSER: ${{ secrets.WEIXIN_TOUSER }}
           WEIXIN_TEMPLATE_ID: ${{ secrets.WEIXIN_TEMPLATE_ID }}
-          # OpenAi - DeepSeeK 配置「https://api.deepseek.com/chat/completions」、「https://platform.deepseek.com/api_keys」
-          DEEPSEEK_APIHOST: ${{ secrets.DEEPSEEK_APIHOST }}
-          DEEPSEEK_APIKEY: ${{ secrets.DEEPSEEK_APIKEY }}

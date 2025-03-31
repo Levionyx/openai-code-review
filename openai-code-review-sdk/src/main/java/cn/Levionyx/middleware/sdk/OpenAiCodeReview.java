@@ -4,6 +4,8 @@ import cn.Levionyx.middleware.sdk.domain.service.impl.OpenAiCodeReviewService;
 import cn.Levionyx.middleware.sdk.infrastructure.git.GitCommand;
 import cn.Levionyx.middleware.sdk.infrastructure.openai.IOpenAI;
 import cn.Levionyx.middleware.sdk.infrastructure.openai.impl.DeepSeekV3;
+import cn.Levionyx.middleware.sdk.infrastructure.rag.IRAGService;
+import cn.Levionyx.middleware.sdk.infrastructure.rag.impl.RAGServiceImpl;
 import cn.Levionyx.middleware.sdk.infrastructure.weixin.WeiXin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +19,6 @@ public class OpenAiCodeReview {
     private String weixin_secret;
     private String weixin_touser;
     private String weixin_template_id;
-
-    // DeepSeek配置
-    private String deepseek_apiHost;
-    private String deepseek_apiKey;
 
     // Github 配置
     private String github_review_log_uri;
@@ -52,12 +50,12 @@ public class OpenAiCodeReview {
         );
 
 
-        IOpenAI openAI = new DeepSeekV3(getEnv("DEEPSEEK_APIHOST"), getEnv("DEEPSEEK_APIKEY"));
+        IRAGService ragService = new RAGServiceImpl();
 
-        OpenAiCodeReviewService openAiCodeReviewService = new OpenAiCodeReviewService(gitCommand, openAI, weiXin);
+        OpenAiCodeReviewService openAiCodeReviewService = new OpenAiCodeReviewService(gitCommand, weiXin, ragService);
         openAiCodeReviewService.exec();
 
-        logger.info("openai-code-review done!");
+        logger.info("rag-openai-code-review done!");
     }
 
     private static String getEnv(String key) {

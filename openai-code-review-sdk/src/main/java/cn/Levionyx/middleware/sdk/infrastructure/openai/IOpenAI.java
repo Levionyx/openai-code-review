@@ -6,4 +6,5 @@ import cn.Levionyx.middleware.sdk.infrastructure.openai.dto.ChatCompletionSyncRe
 public interface IOpenAI {
 
     ChatCompletionSyncResponseDTO completions(ChatCompletionRequestDTO requestDTO) throws Exception;
+
 }
