@@ -20,7 +20,7 @@ public class ApiTest {
     public void test() {
         String FirstName = "John";
         String last_name = "Doe";
-        int AGE = 30;
+
         boolean is_Active = true;
 
         class testUtils {
