@@ -2,7 +2,6 @@ package cn.Levionyx.middleware.sdk.domain.service.impl;
 
 import cn.Levionyx.middleware.sdk.domain.service.AbstractOpenAiCodeReviewService;
 import cn.Levionyx.middleware.sdk.infrastructure.git.GitCommand;
-import cn.Levionyx.middleware.sdk.infrastructure.openai.IOpenAI;
 import cn.Levionyx.middleware.sdk.infrastructure.rag.IRAGService;
 import cn.Levionyx.middleware.sdk.infrastructure.weixin.WeiXin;
 import cn.Levionyx.middleware.sdk.infrastructure.weixin.dto.TemplateMessageDTO;

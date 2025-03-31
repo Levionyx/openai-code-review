@@ -1,11 +1,14 @@
 package cn.Levionyx.middleware.sdk.infrastructure.rag.impl;
 
+import cn.Levionyx.middleware.sdk.OpenAiCodeReview;
 import cn.Levionyx.middleware.sdk.infrastructure.openai.dto.ChatCompletionRequestDTO;
 import cn.Levionyx.middleware.sdk.infrastructure.openai.dto.ChatCompletionSyncResponseDTO;
 import cn.Levionyx.middleware.sdk.infrastructure.rag.IRAGService;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONException;
 import com.alibaba.fastjson2.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,9 +19,12 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class RAGServiceImpl implements IRAGService {
+
+    private static final Logger logger = LoggerFactory.getLogger(RAGServiceImpl.class);
+
     @Override
     public String completionsWithRag(String diffCode) throws Exception {
-
+        logger.info("开始RAG评审代码");
         String baseUrl = "http://localhost:8091/api/v1/openai/generate_stream_rag";
         String message = URLEncoder.encode(diffCode, String.valueOf(StandardCharsets.UTF_8));
         String tag = URLEncoder.encode("代码规范手册", String.valueOf(StandardCharsets.UTF_8));
@@ -30,7 +36,7 @@ public class RAGServiceImpl implements IRAGService {
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Accept", "text/event-stream"); // 处理流式数据
         connection.setDoInput(true);
-
+        logger.info("发送请求");
         StringBuilder fullContent = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
