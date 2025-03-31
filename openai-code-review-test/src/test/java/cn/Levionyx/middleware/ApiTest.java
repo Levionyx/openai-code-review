@@ -18,6 +18,18 @@ public class ApiTest {
 
     @Test
     public void test() {
+        String FirstName = "John";
+        String last_name = "Doe";
+        int AGE = 30;
+        boolean is_Active = true;
 
+        class testUtils {
+            public void PrintInfo() {
+                System.out.println(FirstName + " " + last_name);
+            }
+        }
+
+        List<String> NAMES_LIST = new ArrayList<>();
+        Map<String, Integer> nameToAge_Mapping = new HashMap<>();
     }
 }
