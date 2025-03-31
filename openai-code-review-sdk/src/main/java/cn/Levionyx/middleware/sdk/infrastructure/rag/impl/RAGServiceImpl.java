@@ -32,6 +32,7 @@ public class RAGServiceImpl implements IRAGService {
         String urlStr = baseUrl + "?message=" + message + "&ragTag=" + tag + "&model=" + model;
 
         URL url = new URL(urlStr);
+        logger.info("请求网址为：{}", url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Accept", "text/event-stream"); // 处理流式数据
